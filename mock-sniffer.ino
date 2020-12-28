@@ -25,6 +25,7 @@ void initCan(int speed) {
   }
   Serial.println("Initializing CAN @ " + String(speed) + "Kbps.");
   Serial.println("CAN Initialized! Sniffing now.");
+  delay(2000);
   sniffCan();
 }
 
