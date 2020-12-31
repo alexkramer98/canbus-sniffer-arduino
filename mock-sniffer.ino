@@ -1,11 +1,11 @@
-int ids[50];
+int ids[30];
 int allowedSpeeds[] = {5,10,20,25,33,50,80,95,100,125,200,250,500,666,1000};
 
 void setup() {
   Serial.begin(115200);
   Serial.println("Ready.");
   randomSeed(analogRead(0));
-  for (byte i = 0; i < 50; i++) {
+  for (byte i = 0; i < 30; i++) {
     ids[i] = random(4096);
   }
 }
@@ -31,7 +31,7 @@ void initCan(int speed) {
 
 void sniffCan() {
   while(true) {
-    int id = ids[random(50)];
+    int id = ids[random(30)];
     Serial.print(id, HEX);
     Serial.print(":");
     int msgLength = random(3, 9);
@@ -43,6 +43,7 @@ void sniffCan() {
       }
     }
     Serial.println();
+    delay(500);
   }
 }
 
